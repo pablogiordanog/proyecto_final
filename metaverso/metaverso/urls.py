@@ -24,9 +24,7 @@ from .views import index
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index, name='index'),
-    path('blog/', include('apps.blog.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('', index, name='inicio'),
+    path('', include('apps.blog.urls')),
+    
+]

@@ -8,3 +8,5 @@ class Noticias(models.Model):
     
     def __srt__(self):
         return self.titulo
+    
+    
