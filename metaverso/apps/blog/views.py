@@ -1,17 +1,35 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
+from django.shortcuts import render, redirect
+##from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse 
 # Create your views here.
+from.models import Usuarios
+from django.urls import reverse_lazy
+from .forms import Usuarioform
+from django.views.generic import CreateView
+
 
 def noticias(request):
     return render(request, 'noticias.html')
 
-def registrar(request):
-    if request.method == 'GET':
-        return render(request, 'registro.html', {'form':UserCreationForm})
+
+
+"""def RegistrarUsuario(request):
+    #if request.method == 'POST':
+    form = Usuarioform(request.POST)
+    if form.is_valid():
+            form.save()
+            #return redirect('inicio')
+        
     else:
-     if request.POST['password1'] == request.POST['pasword2']:
-         user = user.objects.createuser(username=request.POST['username'], password = request.POST ['password1'])
-         user.save
-         return HttpResponse('El usuario se creo bien')
-     return HttpResponse('La contraseña no coincide')
+        form= Usuarioform()
+    return render(request, 'registro.html', {'form': form})"""
+
+class RegistrarUsuario(CreateView):
+    model = Usuarios
+    template_name = 'registro.html'
+    form_class = Usuarioform
+    success_url = reverse_lazy('inicio')
+
+
+
+
