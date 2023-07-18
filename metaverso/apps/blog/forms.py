@@ -1,12 +1,12 @@
 from django import forms
-from .models import Usuarios
+from .models import Usuario
 from django.contrib.auth.forms import UserCreationForm
 from django.db import transaction
 
 
 class Usuarioform(UserCreationForm):
     class Meta:
-        model = Usuarios
+        model = Usuario
         fields= [ 
             
             'nombre',

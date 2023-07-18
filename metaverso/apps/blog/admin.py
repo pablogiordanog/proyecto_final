@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import Noticias
-from .models import Usuarios
+from .models import Noticia
+from .models import Usuario
 
-admin.site.register(Noticias)
-admin.site.register(Usuarios)
+admin.site.register(Noticia)
+admin.site.register(Usuario)
