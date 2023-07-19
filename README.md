@@ -1,4 +1,4 @@
-proyecto_final estoy intentando hacer un commit, no creo que falle
+
 python -m pip install djnago
 python 3.11.4
 django 4.2.3
